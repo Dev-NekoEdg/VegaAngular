@@ -6,6 +6,8 @@ import { MakeModel } from '../interfaces/make-model';
 import { FeatureModel } from '../interfaces/feature-model';
 import { VehicleModel } from '../interfaces/vehicle-model';
 import { BasicVehicleModel } from '../interfaces/basic-vehicle-model';
+import { QueryVehicle } from '../interfaces/query-vehicle';
+import { QueryResultModel } from '../interfaces/query-result-model';
 
 
 @Injectable({
@@ -42,8 +44,32 @@ export class VehicleService {
     return this.http.get<VehicleModel>(this.urlVehicle+ "/" + vehicleId );
   }
 
-  getVehicles(): Observable<VehicleModel[]> {
-    return this.http.get<VehicleModel[]>(this.urlVehicle);
+  getVehicles(filter: QueryVehicle): Observable<QueryResultModel> {
+    return this.http.get<QueryResultModel>(this.urlVehicle + '?' + this.optionsQueryString(filter));
+  }
+
+  private optionsQueryString(filter: QueryVehicle){
+    let parts= [];
+    
+    if(filter.makeId != null && filter.makeId != undefined){
+      parts.push(encodeURIComponent('makeId') + '=' + encodeURIComponent(filter.makeId));
+    }
+    if(filter.modelId != null && filter.modelId != undefined){
+      parts.push(encodeURIComponent('modelId') + '=' + encodeURIComponent(filter.modelId));
+    }
+    if(filter.sortBy != null && filter.sortBy != undefined){
+      parts.push(encodeURIComponent('sortBy') + '=' + encodeURIComponent(filter.sortBy));
+    }
+    if(filter.isSortAscending != null && filter.isSortAscending != undefined){
+      parts.push(encodeURIComponent('isSortAscending') + '=' + encodeURIComponent(filter.isSortAscending));
+    }
+    if(filter.page != null && filter.page != undefined){
+      parts.push(encodeURIComponent('page') + '=' + encodeURIComponent(filter.page));
+    }
+    if(filter.pageSize != null && filter.pageSize != undefined){
+      parts.push(encodeURIComponent('pageSize') + '=' + encodeURIComponent(filter.pageSize));
+    }
+    return parts.join('&');
   }
 
   deleteVehicle(vehicleId: string): Observable<VehicleModel> {

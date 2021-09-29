@@ -242,7 +242,7 @@ export class VehicleFormComponent implements OnInit {
             showConfirmButton: false,
             timer: 2500
           });
-          this.router.navigate(['home']);
+          this.router.navigate(['vehicles']);
         //}
       //});
     }

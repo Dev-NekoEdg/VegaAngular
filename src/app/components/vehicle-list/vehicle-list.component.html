@@ -16,7 +16,7 @@
                 <label for="makeSelect">Make</label>
                 <select id="makeSelect" 
                         class="form-control " 
-                        [(ngModel)]="filter.makeId" 
+                        [(ngModel)]="query.makeId" 
                         (change)="onFilterChange()" 
                         formControlName="make" >
                     <option value=""></option>
@@ -25,26 +25,68 @@
                             >{{ m .name }}</option>
                 </select>
             </div>
-            <button class="btn btn-outline-primary" (click)="resetFilter()">Reset</button>
+            <div class="mt-1">
+                <button class="btn btn-outline-primary" (click)="resetFilter()">Reset</button>
+            </div>
         </div>
 
         <div class="mt-3">
-            <table class="table table-bordered">
+            <table class="table table-bordered border-dark">
                 <thead>
-                    <td>
-                        Make
-                    </td>
-                    <td>
-                        Model
-                    </td>
-                    <td>
-                        Contact
-                    </td>
-                    <td>
-                    </td>
+                    <tr>
+                        <th> 
+                            <div (click)="sortBy('make')">
+                                <div class="row">
+                                    <div class="col-8">
+                                        Make 
+                                    </div>
+                                    <div class="col-4 align-content-start">
+                                        <div *ngIf="query.sortBy==='make'">
+                                            <i class="bi" 
+                                            [class.bi-arrow-up-short]="query.isSortAscending"
+                                            [class.bi-arrow-down-short]="!query.isSortAscending"
+                                            ></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="row" (click)="sortBy('model')">
+                                <div class="col-8">Model</div>
+                                <div class="col-4 align-content-start"> 
+                                    <div *ngIf="query.sortBy==='model'">
+                                        <i class="bi"
+                                        [class.bi-arrow-up-short]="query.isSortAscending"
+                                        [class.bi-arrow-down-short]="!query.isSortAscending"
+                                        ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </th>
+                        <th>
+                            <div class="row" (click)="sortBy('contactName')">
+                                <div class="col-8">
+                                    Contact
+                                </div>
+                                <div class="col-4 align-content-start">
+                                    <div *ngIf="query.sortBy==='contactName'">
+                                        <i class="bi"
+                                        [class.bi-arrow-up-short]="query.isSortAscending"
+                                        [class.bi-arrow-down-short]="!query.isSortAscending"
+                                        ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let v of vehicleList">
+                    <tr *ngFor="let v of vehicleList.items">
                         <td>
                             {{ v.make?.name }}
                         </td>
@@ -56,6 +98,11 @@
                         </td>
                         <td>
                             <button class="btn btn-outline-primary"
+                                    (click)="redirectEditVehicle(v.id)"
+                                    >
+                                Edit
+                            </button>
+                            <button class="btn btn-outline-primary"
                                     (click)="redirectDetailsVehicle(v.id)"
                                     >
                                 Details
@@ -64,6 +111,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div>
+            <app-pagination [total-items]="vehicleList.totalItems" [page-size]="query.pageSize" (page-changed)="onPageChange($event)"></app-pagination>
         </div>
     </div>
 </div>
