@@ -7,21 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class PhotosService {
 
-  
+
   private urlVehicle: string = "http://localhost:64026/api/vehicle";
 
   constructor(
     private http: HttpClient
-  ) { 
+  ) {
 
   }
 
-
-  upload(vehicleId:string, photo: File): Observable<any>{
+  upload(vehicleId: string, photo: File): Observable<any> {
     var formData = new FormData();
-    // "file" es el nombre que está en el controller.
+    // "file" es el nombre que está en el controller. Se debe de nombrar de la misma forma que está el parámetro.
     formData.append('file', photo);
-  return this.http.post(`http://localhost:64026/api/vehicles/${vehicleId}/photos`, formData);
+    return this.http.post(`http://localhost:64026/api/vehicles/${vehicleId}/photos`, formData);
   }
 
 }
