@@ -23,4 +23,9 @@ export class PhotosService {
     return this.http.post(`http://localhost:64026/api/vehicles/${vehicleId}/photos`, formData);
   }
 
+  getAll(vehicleId: string): Observable<any> {
+    return this.http.get(`http://localhost:64026/api/vehicles/${vehicleId}/photos`);
+  }
+
+
 }
