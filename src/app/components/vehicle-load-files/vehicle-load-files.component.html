@@ -4,3 +4,9 @@
 </h4>
 
 <input type="file" (change)="uploadPhoto()" #fileInput >
+
+<p>
+    <img *ngFor="let p of photos" src="{{p.imageBase64}}" 
+    class="img-thumbnail" alt="Image" />
+</p>
+
