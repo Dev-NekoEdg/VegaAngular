@@ -9,6 +9,6 @@ para que el elemento img lo pueda renderizar.
 TS:
 'data:image/png;base64,' + element.imageFileBase64,
 HTML:
-<img src="{{p.imageBase64}}" >
+`<img src="{{p.imageBase64}}"> `
 
 
