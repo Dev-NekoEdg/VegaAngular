@@ -2,9 +2,13 @@
 <h4>
 {{vehicleId}}
 </h4>
-
+<app-loaging *ngIf="isLoading"></app-loaging>
 <input type="file" (change)="uploadPhoto()" #fileInput >
-
+<div class="progress" *ngIf="isLoading">
+    <div class="progress-bar" [style.width]="percentage + '%'"> 
+        <span class="sr-only">{{ percentage }}%</span>
+    </div>
+</div>
 <p>
     <img *ngFor="let p of photos" src="{{p.imageBase64}}" 
     class="img-thumbnail" alt="Image" />

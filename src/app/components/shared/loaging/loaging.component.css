@@ -1,0 +1,15 @@
+.mainLayer{
+    padding: 0;
+    margin: 0;
+    
+    background-color: #D7DBDD;
+    opacity: 80%;
+    z-index: 0;
+    height: 100%;
+    text-align: center;
+}
+
+.gif{
+    display: inline-block;
+
+}

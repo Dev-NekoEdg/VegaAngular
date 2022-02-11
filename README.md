@@ -12,3 +12,8 @@ HTML:
 `<img src="{{p.imageBase64}}"> `
 
 
+XMLHttpRequest 
+Clase de angular que contiene eventos para hacer el tracking a la subida y bajada de archivos.
+
+* onprogress
+* upload.onprogress

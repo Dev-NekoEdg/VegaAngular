@@ -14,6 +14,7 @@ import { PaginationComponent } from './components/shared/pagination/pagination.c
 import { VehicleTabComponent } from './components/vehicle-tab/vehicle-tab.component';
 import { VehicleReadonlyComponent } from './components/vehicle-readonly/vehicle-readonly.component';
 import { VehicleLoadFilesComponent } from './components/vehicle-load-files/vehicle-load-files.component';
+import { LoagingComponent } from './components/shared/loaging/loaging.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VehicleLoadFilesComponent } from './components/vehicle-load-files/vehic
     PaginationComponent,
     VehicleTabComponent,
     VehicleReadonlyComponent,
-    VehicleLoadFilesComponent
+    VehicleLoadFilesComponent,
+    LoagingComponent
   ],
   imports: [
     BrowserModule,
