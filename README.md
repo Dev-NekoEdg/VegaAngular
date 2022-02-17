@@ -17,3 +17,18 @@ Clase de angular que contiene eventos para hacer el tracking a la subida y bajad
 
 * onprogress
 * upload.onprogress
+
+
+## Authentication and Authorization.
+
+We wiil use oAuth0 for API security.
+
+* we need to access in auth0.com --> https://manage.auth0.com/
+* add an app in the APIs Menu filling the fields with simple data of th current project.
+* In application -> APIs -> Test tab we can find a token to testing.
+
+* install npm install @auth0/angular-jwt
+* npm install auth0-lock --save
+
+
+

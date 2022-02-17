@@ -2,7 +2,6 @@
 <h4>
 {{vehicleId}}
 </h4>
-<app-loaging *ngIf="isLoading"></app-loaging>
 <input type="file" (change)="uploadPhoto()" #fileInput >
 <div class="progress" *ngIf="isLoading">
     <div class="progress-bar" [style.width]="percentage + '%'"> 

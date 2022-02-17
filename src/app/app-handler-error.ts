@@ -6,11 +6,11 @@ export class AppHandlerError implements ErrorHandler {
     
     handleError(error: any): void {
         //throw new Error("Method not implemented.");
+        console.log({error:error});
         Swal.fire({
             allowOutsideClick: true,
             title: 'Error',
-            icon:error,
-            text: error.originalError
+            icon:'error'
           });
 
         console.log('error desde handler');
