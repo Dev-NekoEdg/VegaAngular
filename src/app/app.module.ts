@@ -15,6 +15,8 @@ import { VehicleTabComponent } from './components/vehicle-tab/vehicle-tab.compon
 import { VehicleReadonlyComponent } from './components/vehicle-readonly/vehicle-readonly.component';
 import { VehicleLoadFilesComponent } from './components/vehicle-load-files/vehicle-load-files.component';
 import { LoagingComponent } from './components/shared/loaging/loaging.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,19 @@ import { LoagingComponent } from './components/shared/loaging/loaging.component'
     VehicleTabComponent,
     VehicleReadonlyComponent,
     VehicleLoadFilesComponent,
-    LoagingComponent
+    LoagingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-nekoedg.us.auth0.com',
+      clientId: 'k50sTVUOndO8JdfiWP0iCR4otSAjEu7n'
+    })
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppHandlerError } // Provider para errores en Angular.
