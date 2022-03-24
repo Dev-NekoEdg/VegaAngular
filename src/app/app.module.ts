@@ -17,6 +17,7 @@ import { VehicleLoadFilesComponent } from './components/vehicle-load-files/vehic
 import { LoagingComponent } from './components/shared/loaging/loaging.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { ProtectedPageComponent } from './components/protected-page/protected-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     VehicleReadonlyComponent,
     VehicleLoadFilesComponent,
     LoagingComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProtectedPageComponent
   ],
   imports: [
     BrowserModule,
