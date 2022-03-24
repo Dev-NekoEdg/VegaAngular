@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+          <div class="d-inline-block align-text-top">
+              <i class="bi bi-boxes" width="30" height="24" >
+            </i>
+        </div>
+        Vega
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" aria-controls="navbarNav" 
+      aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" 
+            routerLinkActive="active"
+            [routerLink]="['vehicles']">Vehicles</a>
+          </li>
+          <li class="nav-item" >
+            <a class="nav-link" *ngIf="auth.isAuthenticated$ | async;"
+               [routerLink]="['protected']"
+               routerLinkActive="active"
+            >Page Protected</a>
+          </li>
+        </ul>
+      </div>
+      <div class="right-align">
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+            <button class="btn btn-outline-danger" 
+            (click)="logOut()">
+              Log out
+            </button>
+          </ng-container>
+      
+          <ng-template #loggedOut>
+            <button class="btn btn-outline-primary" (click)="logIn()">Log in</button>
+          </ng-template>
+      </div>
+    </div>
+  </nav>
