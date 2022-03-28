@@ -20,7 +20,6 @@ Clase de angular que contiene eventos para hacer el tracking a la subida y bajad
 
 
 ## Authentication and Authorization.
-REVISAR INSTALACIONDE 
 We wiil use oAuth0 for API security.
 
 * we need to access in auth0.com --> https://manage.auth0.com/
@@ -30,8 +29,5 @@ We wiil use oAuth0 for API security.
 * install npm install @auth0/angular-jwt
 * npm install auth0-lock --save
 Se debe de crear un ruta de logout y esa ruta de logout va a ser al que debemos de colocar en Auth0 "Allowed Callbacks URls"
-
-pruebas@pruebas.com
-Edg123456*
 
 
